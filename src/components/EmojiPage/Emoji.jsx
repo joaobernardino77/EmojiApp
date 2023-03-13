@@ -16,10 +16,11 @@ export default function Emoji() {
   const [calendarDate, setCalendarDate] = useState();
   const emojiSubmitedId = useRef("");
   const navigate = useNavigate();
+
   //context
   const { setMetaMaskAccount, metaMaskAccount, returnCurrentAccountReference } =
     useEmoji();
-  // hooks
+
   const params = useParams();
   //on start or in case the ethereum extension is connected if we don't have yet an account set we connect it
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function Emoji() {
         setMetaMaskAccount(resultConnectAccount);
     };
     connectToMetaMask();
-  }, [metaMaskAccount]);
+  }, [metaMaskAccount, setMetaMaskAccount]);
 
   useEffect(() => {
     let loadedEmojis = [];

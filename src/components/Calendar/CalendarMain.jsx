@@ -1,6 +1,6 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import { useNavigate } from "react-router-dom";
-import { useEmoji } from "../contexts/EmojiContext";
+import { useEmoji } from "../../contexts/EmojiContext";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./CalendarMain.css";

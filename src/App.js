@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Emoji from "./components/Emoji/Emoji";
-import CalendarMain from "./components/CalendarMain";
+import Emoji from "./components/EmojiPage/Emoji";
+import CalendarMain from "./components/Calendar/CalendarMain";
 import { useEffect } from "react";
 import { useEmoji } from "./contexts/EmojiContext";
 import { Toaster } from "react-hot-toast";
