@@ -1,0 +1,9 @@
+.sign-emojis-button {
+  background-color: darksalmon;
+  cursor: pointer;
+}
+
+.signed-emojis-area {
+  background-color: #fff1d2;
+  margin-top: 10px;
+}
