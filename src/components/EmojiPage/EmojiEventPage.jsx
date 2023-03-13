@@ -5,12 +5,12 @@ import { decodeEmojis, retrieveAllEmojis } from "./decodingFunctions";
 import { useEmoji } from "../../contexts/EmojiContext";
 import isEqual from "lodash/isEqual";
 import moment from "moment";
-import "./Emoji.css";
+import "./EmojiEventPage.css";
 import LoadedEmojis from "./LoadedEmojis";
 import SignedEmojis from "./SignedEmojis";
 import CalendarEmoji from "./CalendarEmoji";
 
-export default function Emoji() {
+export default function EmojiEventPage() {
   const [loadedEmojis, setLoadedEmojis] = useState([]);
   const [signedEmojis, setSignedEmojis] = useState([]);
   const [calendarDate, setCalendarDate] = useState();
@@ -22,7 +22,7 @@ export default function Emoji() {
     useEmoji();
 
   const params = useParams();
-  //on start or in case the ethereum extension is connected if we don't have yet an account set we connect it
+  //on start and in case the ethereum extension is connected if we don't have yet an account set we connect it
   useEffect(() => {
     if (metaMaskAccount) return;
     const connectToMetaMask = async () => {

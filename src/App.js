@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Emoji from "./components/EmojiPage/Emoji";
+import EmojiEventPage from "./components/EmojiPage/EmojiEventPage";
 import CalendarMain from "./components/Calendar/CalendarMain";
 import { useEffect } from "react";
 import { useEmoji } from "./contexts/EmojiContext";
@@ -28,7 +28,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CalendarMain />} />
-          <Route path="/:img" element={<Emoji />} />
+          <Route path="/:img" element={<EmojiEventPage />} />
         </Routes>
       </BrowserRouter>
     </div>

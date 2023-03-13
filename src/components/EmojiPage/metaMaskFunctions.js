@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
 import toast from "react-hot-toast";
-import { useEmoji } from "../../contexts/EmojiContext";
 
 export const connectAccount = async () => {
   if (window.ethereum) {

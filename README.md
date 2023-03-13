@@ -1,11 +1,11 @@
 # Project Title
 
-AI Learning Bot
+EmojiApp
 
 ## GitHub link:
 
 Access this project on Git:
-https://github.com/joaobernardino77/LearningBot
+https://github.com/joaobernardino77/EmojiApp
 
 ## Table of Content:
 
@@ -18,27 +18,27 @@ https://github.com/joaobernardino77/LearningBot
 
 ## About The App
 
-AI Learning Bot is an app that allows the user to learn about different topics and subjects by writing messages through a chat bot. All the learning information is loaded using a MongoDB database. There are documents for learning (the ones that have a category named learning) and the others are for bot basic communication. You can specify on bot server initialization what are the learning topics that you can include on the bot (if you don't specify one all topics and all learning messages will be learned by the bot)
+EmojiApp is an app that allows the user to decode, sign and submit emoji(s) to a calendar. Decoding emojis can be done without any further requirement, all other operations must require user to be connected to the MetaMask account. The app consists on two pages. The main one is a calendar where user can see all saved events. The other one is the emoji event page where user can set an event with the loaded emojis
 
 ## Technologies
 
-Application made using React (client part) and Node.js(server part) with MongoDB (database part)
+Application made using React
 
 ## Setup
 
 - download or clone the repository
-- execute `npm install` for both client and server folder
+- execute `npm install`
 
 ## Run
 
-- to run the server execute `npm start` on the server folder
-- to run the client execute `npm start` on the client folder
+- to run the app execute `npm start`
 
 ## Approach
 
-For the database i have created the 'messages' collection on the database. Every document has a category (learning or other), a topic and an array of objects(composed by user messages, bot responses and a subject).
-For the server right at the beggining we create an instance of the bot,for this i used a class that has all the methods associated with the bot, except for the helpers (that are optional to the working of the bot). We also set the routes where each will call a method of the bot instance. One to send the bot initial message and the other to get the response for the user message (in case there is no response a not found response is sent, and in case there are multiple responses a random one is picked)
-For the client i created the MessageArea component that is the core of the client with two useEffects: one to retrieve the initial bot message and the other to get a bot response whenever user sends a message. We then have 2 components one for capturing the user input and the other to display both Bot and User messages. Whenever we are getting the bot response from the server we block the user input and show a loading message animation as the last message of the bot
+First i have defined how the emojis were passed using the path. Because there can be combined emojis i have defined the '&' character to separate emojis. The emojis code are passed in the format U+XXXX (here is a link to a list of emojis and their respective code). As an example of a single emoji we can have U+1F600 and the example of a combined emoji we can have U+1F636U+200DU+1F32BU+FE0F. So if user wants both emojis on the same event the path he needs to use is U+1F928&U+1F636U+200DU+1F32BU+FE0F
+When user enters both calendar or event page, if is not connected or has a saved account cached, he will be asked to connect
+All data on a data structure is saved using react useContext and any change on it goes to localStorage to be persistent (in case it exists it gets loaded initially to the context from it)
+In that structure the address of the MetaMask account is saved (when we detect a disconect on the account it resets that adress and refreshes the page), and we also save the data for the users. On the user data it is saved not only the events that user adds but also an object with all signed emojis in order to not asking user to sign again repeated emojis. those signed emojis however gets validated when user pick a calendar date for an event and in case there are no longer valid they are removed from that list and user is requested to sign the emojis again (only the ones that are no longer valid it doens't need to sign all the emojis of the event) .
 
 ## Author
 

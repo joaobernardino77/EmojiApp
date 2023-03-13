@@ -3,7 +3,6 @@ import toast from "react-hot-toast";
 const initialState = {
   metaMaskAccount: null,
   users: [],
-  decodedEmojis: {},
 };
 
 const getInitialState = () => {
@@ -46,7 +45,9 @@ const EmojisContextProvider = (props) => {
       users: emojisData.users,
     }));
   };
-  const addEmoji = (emoji) => {
+
+  //Add Emojis entry on calendar
+  const addEmojiCalendarEntry = (emoji) => {
     if (!emojisData.metaMaskAccount) {
       toast.error(
         "error connecting to MetaMask account please check your extension"
@@ -64,7 +65,7 @@ const EmojisContextProvider = (props) => {
       users: newUsers,
     }));
   };
-  const replaceEmoji = (oldId, newDate) => {
+  const replaceEmojiCalendarEntry = (oldId, newDate) => {
     const newUsers = emojisData.users.map((u) => {
       if (u.address === emojisData.metaMaskAccount.address) {
         const oldEmoji = u.emojis.find((emoji) => {
@@ -122,8 +123,8 @@ const EmojisContextProvider = (props) => {
     <EmojisContext.Provider
       value={{
         setMetaMaskAccount,
-        addEmoji,
-        replaceEmoji,
+        addEmojiCalendarEntry,
+        replaceEmojiCalendarEntry,
         addSigned,
         removeSigned,
         returnCurrentAccountReference,

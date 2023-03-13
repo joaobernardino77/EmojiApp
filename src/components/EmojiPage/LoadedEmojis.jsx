@@ -7,11 +7,9 @@ export default function LoadedEmojis({ loadedEmojis }) {
       </div>
       {loadedEmojis.map((emoji, index) => {
         return (
-          <div key={"loaded-emoji-" + index}>
-            <span className="icon" role="img">
-              {emoji}
-            </span>
-          </div>
+          <span key={"loaded-emoji-" + index} className="icon" role="img">
+            {emoji}
+          </span>
         );
       })}
     </div>

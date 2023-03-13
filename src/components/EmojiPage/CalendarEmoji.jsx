@@ -12,8 +12,8 @@ export default function CalendarEmoji({
   emojiSubmitedId,
 }) {
   const {
-    addEmoji,
-    replaceEmoji,
+    addEmojiCalendarEntry,
+    replaceEmojiCalendarEntry,
     removeSigned,
     returnCurrentAccountReference,
   } = useEmoji();
@@ -52,7 +52,7 @@ export default function CalendarEmoji({
     }
     if (emojiSubmitedId.current === "") {
       emojiSubmitedId.current = params?.img;
-      addEmoji({
+      addEmojiCalendarEntry({
         start: date,
         end: date,
         title: signedEmojis,
@@ -62,7 +62,7 @@ export default function CalendarEmoji({
     } else {
       //change emoji date
       toast.success("calendar date successfully changed");
-      replaceEmoji(emojiSubmitedId.current, date);
+      replaceEmojiCalendarEntry(emojiSubmitedId.current, date);
     }
     updateCalendarDate(date);
   };
